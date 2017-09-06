@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "640905870006",
+    "firebase_url": "https://dispositivosmovilesapp-7c99e.firebaseio.com",
+    "project_id": "dispositivosmovilesapp-7c99e",
+    "storage_bucket": "dispositivosmovilesapp-7c99e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640905870006:android:4c2eb1829cf7c430",
+        "android_client_info": {
+          "package_name": "com.dispositivosmoviles.mimel.dispositivosmovilesapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640905870006-3tr15oh4pjl5cnrba5iakd6dnf55i65p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dispositivosmoviles.mimel.dispositivosmovilesapp",
+            "certificate_hash": "7e1ba97e3143dc744697622eb1425dd8075d2166"
+          }
+        },
+        {
+          "client_id": "640905870006-bnfo6sie7h31bdg93cp5fv21pcjash6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcH64RITbnl3cilBYDLIT351-P39pzeX8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640905870006-bnfo6sie7h31bdg93cp5fv21pcjash6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640905870006:android:96f8e4eb73358ca4",
+        "android_client_info": {
+          "package_name": "com.findyourplace.mimel.furp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640905870006-1pa336118omdpj21b783cdb344kv14d6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.findyourplace.mimel.furp",
+            "certificate_hash": "7e1ba97e3143dc744697622eb1425dd8075d2166"
+          }
+        },
+        {
+          "client_id": "640905870006-bnfo6sie7h31bdg93cp5fv21pcjash6g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcH64RITbnl3cilBYDLIT351-P39pzeX8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640905870006-bnfo6sie7h31bdg93cp5fv21pcjash6g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
