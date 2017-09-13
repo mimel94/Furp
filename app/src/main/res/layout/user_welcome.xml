@@ -28,11 +28,11 @@
         android:text="Explorar"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnPublish"
-        app:layout_constraintLeft_toRightOf="@+id/btn_my_sites"
+        app:layout_constraintLeft_toRightOf="@+id/btnViewSites"
         android:layout_marginLeft="16dp" />
 
     <Button
-        android:id="@+id/btn_my_sites"
+        android:id="@+id/btnViewSites"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
