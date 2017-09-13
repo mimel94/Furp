@@ -22,6 +22,12 @@
         <activity android:name=".WelcomeUser">
 
         </activity>
+        <activity android:name=".DataUser">
+
+        </activity>
+        <activity android:name=".UpdateDataUser">
+
+        </activity>
     </application>
 
 </manifest>

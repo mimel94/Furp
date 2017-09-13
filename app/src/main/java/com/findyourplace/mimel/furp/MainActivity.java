@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -69,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     public void onStop() {
         super.onStop();
         if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
+            //mAuth.removeAuthStateListener(mAuthListener);
         }
     }
     public void isLoged(){
@@ -80,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d("", "Actualmente esta logeado:" + user.getUid());
+                    //WelcomeUser();
                 } else {
                     // User is signed out
                     Log.d("", "No hay usuario logeado");

@@ -1,20 +1,22 @@
 package com.findyourplace.mimel.furp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.findyourplace.mimel.furp.models.FirebaseReferences;
+import com.findyourplace.mimel.furp.models.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * Created by mimel on 5/09/17.
@@ -27,12 +29,15 @@ public class RegisterUser extends AppCompatActivity {
     EditText email;
     EditText password;
     Button btnRegister;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference(FirebaseReferences.USER_REFERENCE);
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_register);
         btnRegister = (Button)findViewById(R.id.btnRegister);
         mAuth = FirebaseAuth.getInstance();
+
 
        /* btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,6 +83,9 @@ public class RegisterUser extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
                             Toast.makeText(RegisterUser.this,"Usuario creado correctamente", Toast.LENGTH_SHORT).show();
+                            User user = new User("","","",mAuth.getCurrentUser().getEmail().toString());
+                            myRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
+
                             finish();
 
                         }else{
