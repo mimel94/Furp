@@ -15,6 +15,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class WelcomeUser extends AppCompatActivity {
     Button editAndView;
+    Button publishSite;
     private FirebaseAuth mAuth;
     Button closeSesion;
     protected void onCreate(Bundle savedInstanceBundle){
@@ -25,6 +26,14 @@ public class WelcomeUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(WelcomeUser.this, DataUser.class);
+                startActivity(i);
+            }
+        });
+        publishSite = (Button)findViewById(R.id.btnPublish);
+        publishSite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(WelcomeUser.this, PublishSite.class);
                 startActivity(i);
             }
         });

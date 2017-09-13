@@ -27,7 +27,7 @@
         android:layout_weight="3"
         android:text="Explorar"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_publish_site"
+        app:layout_constraintTop_toBottomOf="@+id/btnPublish"
         app:layout_constraintLeft_toRightOf="@+id/btn_my_sites"
         android:layout_marginLeft="16dp" />
 
@@ -54,11 +54,11 @@
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Button
-        android:id="@+id/btn_publish_site"
+        android:id="@+id/btnPublish"
         android:layout_width="165dp"
         android:layout_height="wrap_content"
         android:layout_marginRight="16dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="90dp"
         android:layout_weight="2"
         android:text="Publicar un sitio"
         app:layout_constraintRight_toRightOf="parent"

@@ -6,4 +6,5 @@ package com.findyourplace.mimel.furp.models;
 
 public class FirebaseReferences {
     final public static String USER_REFERENCE = "user";
+    final public static String SITE_REFERENCE = "site";
 }

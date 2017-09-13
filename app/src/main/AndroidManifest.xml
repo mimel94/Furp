@@ -16,18 +16,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RegisterUser">
-
-        </activity>
-        <activity android:name=".WelcomeUser">
-
-        </activity>
-        <activity android:name=".DataUser">
-
-        </activity>
-        <activity android:name=".UpdateDataUser">
-
-        </activity>
+        <activity android:name=".RegisterUser"></activity>
+        <activity android:name=".WelcomeUser"></activity>
+        <activity android:name=".DataUser"></activity>
+        <activity android:name=".UpdateDataUser"></activity>
+        <activity android:name=".PublishSite"></activity>
     </application>
 
 </manifest>
