@@ -24,8 +24,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class RegisterUser extends AppCompatActivity {
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
+    private AuthFrup myUser = new AuthFrup();
     EditText email;
     EditText password;
     Button btnRegister;
@@ -36,43 +35,14 @@ public class RegisterUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.user_register);
         btnRegister = (Button)findViewById(R.id.btnRegister);
-        mAuth = FirebaseAuth.getInstance();
 
-
-       /* btnRegister.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                email = (EditText)findViewById(R.id.txtEmail);
-                password = (EditText)findViewById(R.id.txtPassword);
-
-                mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
-                        .addOnCompleteListener(RegisterUser.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Log.d("", "createUserWithEmail:onComplete:" + task.isSuccessful());
-
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (task.isSuccessful()) {
-                                    Toast.makeText(RegisterUser.this,"Usuario creado correctamente: "+mAuth.getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
-
-                                }else{
-                                    Toast.makeText(RegisterUser.this,"Algo paso, usuario ya registrado o datos mal ingresados: ", Toast.LENGTH_SHORT).show();
-                                }
-
-                                // ...
-                            }
-                        });
-            }
-        });*/
 
     }
     public void createUser(View view){
         email = (EditText)findViewById(R.id.txtEmail);
         password = (EditText)findViewById(R.id.txtPassword);
 
-        mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
+        myUser.mAuth.createUserWithEmailAndPassword(email.getText().toString().trim(), password.getText().toString().trim())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
@@ -83,8 +53,8 @@ public class RegisterUser extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
                             Toast.makeText(RegisterUser.this,"Usuario creado correctamente", Toast.LENGTH_SHORT).show();
-                            User user = new User("","","",mAuth.getCurrentUser().getEmail().toString());
-                            myRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
+                            User user = new User("","","",myUser.mAuth.getCurrentUser().getEmail().toString());
+                            myRef.child(myUser.mAuth.getCurrentUser().getUid()).setValue(user);
 
                             finish();
 
