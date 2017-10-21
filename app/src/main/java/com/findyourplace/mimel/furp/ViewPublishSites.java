@@ -37,7 +37,7 @@ public class ViewPublishSites extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        //mAuth.addAuthStateListener(mAuthListener);
     }
     @Override
     public void onStop() {
@@ -51,15 +51,10 @@ public class ViewPublishSites extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_sites);
-
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-
         sites = new ArrayList<>();
         mAuth = FirebaseAuth.getInstance();
-        isLoged();
         database = FirebaseDatabase.getInstance();
         adapter = new Adapter(sites);
         recyclerView.setAdapter(adapter);
@@ -89,31 +84,10 @@ public class ViewPublishSites extends AppCompatActivity {
         backMenu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(ViewPublishSites.this, WelcomeUser.class);
-                startActivity(i);
+                startActivity(new Intent(ViewPublishSites.this, NavigationPanel.class));
                 finish();
             }
         });
 
-
-
-
-    }
-    public void isLoged(){
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d("", "Actualmente esta logeado:" + user.getUid());
-                    //WelcomeUser();
-                } else {
-                    // User is signed out
-                    Log.d("", "No hay usuario logeado");
-                }
-                // ...
-            }
-        };
     }
 }

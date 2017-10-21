@@ -34,7 +34,7 @@ public class PublishSite extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+       // mAuth.addAuthStateListener(mAuthListener);
     }
     @Override
     public void onStop() {
@@ -49,7 +49,6 @@ public class PublishSite extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish_site);
-        isLoged();
         create = (Button)findViewById(R.id.btnCreate);
         mAuth = FirebaseAuth.getInstance();
         name = (EditText)findViewById(R.id.txtName);
@@ -69,28 +68,10 @@ public class PublishSite extends AppCompatActivity {
                         type.getText().toString());
                 refSite.child(mAuth.getCurrentUser().getUid()).push().setValue(place);
                 Toast.makeText(PublishSite.this, "Sitio creado!", Toast.LENGTH_SHORT).show();
-                Intent i = new Intent(PublishSite.this, WelcomeUser.class);
-                startActivity(i);
+                startActivity(new Intent(PublishSite.this, NavigationPanel.class));
                 finish();
             }
         });
 
-    }
-    public void isLoged(){
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d("", "Actualmente esta logeado:" + user.getUid());
-                    //WelcomeUser();
-                } else {
-                    // User is signed out
-                    Log.d("", "No hay usuario logeado");
-                }
-                // ...
-            }
-        };
     }
 }
