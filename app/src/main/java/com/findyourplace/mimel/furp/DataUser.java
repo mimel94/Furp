@@ -89,18 +89,6 @@ public class DataUser extends AppCompatActivity {
                 System.out.print("Error no hay datos en la base de datos! :P"+databaseError.toString());
             }
         });
-
-
-        EditData = (Button)findViewById(R.id.btnEdit);
-        EditData.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(DataUser.this, UpdateDataUser.class);
-                startActivity(i);
-                finish();
-            }
-        });
-
         mAuth.getCurrentUser();
 
 

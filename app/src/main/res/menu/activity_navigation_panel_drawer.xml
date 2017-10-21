@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/edit_data"
+            android:icon="@drawable/account_edit"
+            android:title="Editar mis datos" />
+        <item
+            android:id="@+id/publish_site"
+            android:icon="@drawable/publish_site"
+            android:title="Publicar un sitio" />
+        <item
+            android:id="@+id/my_sites"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="mis publicaciones" />
+
+    </group>
+
+</menu>

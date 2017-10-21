@@ -38,7 +38,7 @@ public class UpdateDataUser extends AppCompatActivity {
     @Override
     public void onStart() {
         super.onStart();
-        mAuth.addAuthStateListener(mAuthListener);
+        //mAuth.addAuthStateListener(mAuthListener);
     }
     @Override
     public void onStop() {
@@ -54,7 +54,6 @@ public class UpdateDataUser extends AppCompatActivity {
 
         updateData = (Button)findViewById(R.id.btnSave);
         mAuth = FirebaseAuth.getInstance();
-        isLoged();
         user = new User();
         name = (EditText) findViewById(R.id.txtName);
         city = (EditText) findViewById(R.id.txtCity);
@@ -87,31 +86,12 @@ public class UpdateDataUser extends AppCompatActivity {
                 user.setCity(city.getText().toString().trim());
                 user.setDescription(description.getText().toString().trim());
                 refUser.child(mAuth.getCurrentUser().getUid()).setValue(user);
-                Intent i = new Intent(UpdateDataUser.this, DataUser.class);
-                startActivity(i);
+                startActivity(new Intent(UpdateDataUser.this, NavigationPanel.class));
                 finish();
+
             }
         });
 
-
-
-
     }
-    public void isLoged(){
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.d("", "Actualmente esta logeado:" + user.getUid());
-                    //WelcomeUser();
-                } else {
-                    // User is signed out
-                    Log.d("", "No hay usuario logeado");
-                }
-                // ...
-            }
-        };
-    }
+
 }
