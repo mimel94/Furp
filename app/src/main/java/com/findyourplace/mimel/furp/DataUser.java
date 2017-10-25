@@ -101,7 +101,7 @@ public class DataUser extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d("", "Actualmente esta logeado:" + user.getUid());
-                    //WelcomeUser();
+                    //welcomeUser();
                 } else {
                     // User is signed out
                     Log.d("", "No hay usuario logeado");

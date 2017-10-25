@@ -83,7 +83,7 @@ public class RegisterUser extends AppCompatActivity {
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
                             Toast.makeText(RegisterUser.this,"Usuario creado correctamente", Toast.LENGTH_SHORT).show();
-                            User user = new User("","","",mAuth.getCurrentUser().getEmail().toString());
+                            User user = new User("","","",mAuth.getCurrentUser().getEmail().toString(),"");
                             myRef.child(mAuth.getCurrentUser().getUid()).setValue(user);
 
                             finish();

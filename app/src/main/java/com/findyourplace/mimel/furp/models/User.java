@@ -9,16 +9,18 @@ public class User {
     String city;
     String description;
     String email;
+    String profilePhotoUrl;
 
     public User(){
 
     }
 
-    public User(String name, String city, String description, String email) {
+    public User(String name, String city, String description, String email, String profilePhotoUrl) {
         this.name = name;
         this.city = city;
         this.description = description;
         this.email = email;
+        this.profilePhotoUrl = profilePhotoUrl;
     }
 
     public String getName() {
@@ -52,4 +54,13 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public String getProfilePhotoUrl() {
+        return profilePhotoUrl;
+    }
+
+    public void setProfilePhotoUrl(String profilePhotoUrl) {
+        this.profilePhotoUrl = profilePhotoUrl;
+    }
+
 }

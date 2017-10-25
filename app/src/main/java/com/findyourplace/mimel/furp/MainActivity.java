@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                                     Toast.makeText(MainActivity.this, "Correo o contraseña invalida",
                                             Toast.LENGTH_SHORT).show();
                                 }else {
-                                    WelcomeUser();
+                                    welcomeUser();
                                 }
 
                                 // ...
@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 if (user != null) {
                     // User is signed in
                     Log.d("", "Actualmente esta logeado:" + user.getUid());
-                    WelcomeUser();
+                    welcomeUser();
                 } else {
                     // User is signed out
                     Log.d("", "No hay usuario logeado");
@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(i);
     }
-    public void WelcomeUser(){
+    public void welcomeUser(){
         Intent i = new Intent(MainActivity.this, NavigationPanel.class);
 
         startActivity(i);
