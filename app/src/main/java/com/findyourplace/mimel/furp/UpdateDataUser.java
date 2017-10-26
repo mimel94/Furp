@@ -148,7 +148,7 @@ public class UpdateDataUser extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == GALERY_INTENT && resultCode == RESULT_OK){
             myProgressDialog.setTitle("subiendo...");
-            myProgressDialog.setMessage("Subiendo de perfil");
+            myProgressDialog.setMessage("Subiendo foto de perfil");
             myProgressDialog.setCancelable(false);
             myProgressDialog.show();
 

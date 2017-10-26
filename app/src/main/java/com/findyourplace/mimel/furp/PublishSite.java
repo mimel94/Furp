@@ -2,6 +2,7 @@ package com.findyourplace.mimel.furp;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.findyourplace.mimel.furp.fragment.Map;
 import com.findyourplace.mimel.furp.models.FirebaseReferences;
 import com.findyourplace.mimel.furp.models.Site;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +30,7 @@ public class PublishSite extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     FirebaseDatabase database;
+    FragmentManager myFragment = getSupportFragmentManager();
 
 
 
@@ -52,12 +55,13 @@ public class PublishSite extends AppCompatActivity {
         create = (Button)findViewById(R.id.btnCreate);
         mAuth = FirebaseAuth.getInstance();
         name = (EditText)findViewById(R.id.txtName);
-        location = (EditText)findViewById(R.id.txtLocation);
+        //location = (EditText)findViewById(R.id.txtLocation);
         city = (EditText)findViewById(R.id.txtCity);
         description = (EditText)findViewById(R.id.txtDescription);
         type = (EditText)findViewById(R.id.txtType);
         database = FirebaseDatabase.getInstance();
         refSite = database.getReference(FirebaseReferences.SITE_REFERENCE);
+        myFragment.beginTransaction().replace(R.id.mapView, new Map()).commit();
 
 
         create.setOnClickListener(new View.OnClickListener() {
