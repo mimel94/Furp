@@ -14,15 +14,20 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.findyourplace.mimel.furp.models.User;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class NavigationPanel extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -36,6 +41,7 @@ public class NavigationPanel extends AppCompatActivity
     TextView email;
     User user;
     TextView salute;
+    ImageView profilePhoto;
 
     @Override
     public void onStart() {
@@ -56,6 +62,7 @@ public class NavigationPanel extends AppCompatActivity
         setContentView(R.layout.activity_navigation_panel);
         mAuth = FirebaseAuth.getInstance();
         user = new User();
+        profilePhoto = (ImageView)findViewById(R.id.img_profile_photo);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -93,6 +100,13 @@ public class NavigationPanel extends AppCompatActivity
                     description.setText("Complete su descripcion");
                 }else {
                     description.setText(user.getDescription());
+                }
+                if(!user.getProfilePhotoUrl().isEmpty()){
+                    StorageReference httpsReference = FirebaseStorage.getInstance().getReferenceFromUrl(user.getProfilePhotoUrl());
+                    Glide.with(NavigationPanel.this)
+                            .using(new FirebaseImageLoader())
+                            .load(httpsReference)
+                            .into(profilePhoto);
                 }
                 email.setText(user.getEmail());
 
