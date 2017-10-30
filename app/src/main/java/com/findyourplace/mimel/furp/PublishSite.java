@@ -23,7 +23,11 @@ public class PublishSite extends AppCompatActivity {
     Button create;
     EditText name;
     DatabaseReference refSite;
-    EditText location;
+
+
+
+    String latitud;
+    String longitud;
     EditText city;
     EditText description;
     EditText type;
@@ -67,7 +71,7 @@ public class PublishSite extends AppCompatActivity {
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Site place =  new Site(name.getText().toString(), location.getText().toString(),
+               Site place =  new Site(name.getText().toString(), latitud, longitud,
                         city.getText().toString(), description.getText().toString(),
                         type.getText().toString());
                 refSite.child(mAuth.getCurrentUser().getUid()).push().setValue(place);
@@ -77,5 +81,11 @@ public class PublishSite extends AppCompatActivity {
             }
         });
 
+    }
+
+
+    public void setLocationLatLng(double longitud, double latitud) {
+        this.latitud =  String.valueOf(latitud);
+        this.longitud = String.valueOf(longitud);
     }
 }

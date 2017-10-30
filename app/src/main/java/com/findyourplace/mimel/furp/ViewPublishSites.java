@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.findyourplace.mimel.furp.models.FirebaseReferences;
 import com.findyourplace.mimel.furp.models.Site;
@@ -56,7 +57,7 @@ public class ViewPublishSites extends AppCompatActivity {
         sites = new ArrayList<>();
         mAuth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        adapter = new Adapter(sites);
+        adapter = new Adapter(sites, this);
         recyclerView.setAdapter(adapter);
         refSite = database.getReference(FirebaseReferences.SITE_REFERENCE);
         Log.d("", "DATA!!!:" + refSite);
@@ -86,6 +87,21 @@ public class ViewPublishSites extends AppCompatActivity {
             public void onClick(View v) {
                 startActivity(new Intent(ViewPublishSites.this, NavigationPanel.class));
                 finish();
+            }
+        });
+
+        adapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int position = recyclerView.getChildAdapterPosition(v);
+                Intent i = new Intent(ViewPublishSites.this, DetailSite.class);
+                i.putExtra("name", sites.get(position).getName());
+                i.putExtra("type", sites.get(position).getType());
+                i.putExtra("description", sites.get(position).getDescription());
+                i.putExtra("latitud", sites.get(position).getLatitud());
+                i.putExtra("longitud", sites.get(position).getLongitud());
+                startActivity(i);
+
             }
         });
 

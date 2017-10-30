@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        tools:context="com.findyourplace.mimel.furp.DetailSite">
+
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="253dp"
+            android:layout_height="235dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:srcCompat="@android:drawable/ic_delete"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="37dp"
+            app:layout_constraintHorizontal_bias="0.503" />
+
+        <TextView
+            android:id="@+id/txt_name_site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintHorizontal_bias="0.501"
+            android:layout_marginTop="28dp"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <TextView
+            android:id="@+id/txt_type_site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintHorizontal_bias="0.505"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name_site" />
+
+        <TextView
+            android:id="@+id/txt_description_site"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="TextView"
+            android:textSize="24sp"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_type_site" />
+
+        <com.google.android.gms.maps.MapView
+            android:id="@+id/map_site"
+            android:layout_width="384dp"
+            android:layout_height="247dp"
+            android:layout_marginTop="21dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_description_site"
+            app:layout_constraintHorizontal_bias="0.428"
+            map:uiZoomControls="true"
+            map:uiScrollGestures="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            map:cameraZoom="12"
+            android:layout_marginBottom="24dp" />
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
+

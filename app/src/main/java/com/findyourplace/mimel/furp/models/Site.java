@@ -7,7 +7,17 @@ package com.findyourplace.mimel.furp.models;
 public class Site {
 
     String name;
-    String location;
+
+    public String getLongitud() {
+        return longitud;
+    }
+
+    public String getLatitud() {
+        return latitud;
+    }
+
+    String longitud;
+    String latitud;
     String city;
     String description;
     String type;
@@ -16,9 +26,10 @@ public class Site {
 
     }
 
-    public Site(String name, String location, String city, String description, String type) {
+    public Site(String name, String longitud, String latitud, String city, String description, String type) {
         this.name = name;
-        this.location = location;
+        this.longitud = longitud;
+        this.latitud = latitud;
         this.city = city;
         this.description = description;
         this.type = type;
@@ -32,12 +43,11 @@ public class Site {
         this.name = name;
     }
 
-    public String getLocation() {
-        return location;
-    }
 
-    public void setLocation(String location) {
-        this.location = location;
+
+    public void setLocation(String latitud, String  longitud) {
+        this.latitud= latitud;
+        this.longitud = longitud;
     }
 
     public String getCity() {
