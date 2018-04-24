@@ -100,6 +100,8 @@ public class ViewPublishSites extends AppCompatActivity {
                 i.putExtra("description", sites.get(position).getDescription());
                 i.putExtra("latitud", sites.get(position).getLatitud());
                 i.putExtra("longitud", sites.get(position).getLongitud());
+                i.putExtra("photo", sites.get(position).getProfilePhotoUrl());
+                //i.putExtra("idSite",    )
                 startActivity(i);
 
             }

@@ -22,17 +22,28 @@ public class Site {
     String description;
     String type;
 
+    public String getProfilePhotoUrl() {
+        return profilePhotoUrl;
+    }
+
+    public void setProfilePhotoUrl(String profilePhotoUrl) {
+        this.profilePhotoUrl = profilePhotoUrl;
+    }
+
+    String profilePhotoUrl;
+
     public Site() {
 
     }
 
-    public Site(String name, String longitud, String latitud, String city, String description, String type) {
+    public Site(String name, String longitud, String latitud, String city, String description, String type, String profilePhotoUrl) {
         this.name = name;
         this.longitud = longitud;
         this.latitud = latitud;
         this.city = city;
         this.description = description;
         this.type = type;
+        this.profilePhotoUrl = profilePhotoUrl;
     }
 
     public String getName() {

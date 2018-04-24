@@ -5,10 +5,17 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.findyourplace.mimel.furp.NavigationPanel;
 import com.findyourplace.mimel.furp.R;
+import com.findyourplace.mimel.furp.ViewPublishSites;
 import com.findyourplace.mimel.furp.models.Site;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,6 +51,16 @@ public class Adapter extends  RecyclerView.Adapter<Adapter.SitesViewHolder> impl
         holder.city.setText("Ciudad: "+site.getCity());
         holder.type.setText("Tipo: "+site.getType());
         holder.description.setText("Descripcion: "+site.getDescription());
+
+        if(!site.getProfilePhotoUrl().isEmpty()){
+            StorageReference httpsReference = FirebaseStorage.getInstance().getReferenceFromUrl(site.getProfilePhotoUrl());
+            Glide.with(context)
+                    .using(new FirebaseImageLoader())
+                    .load(httpsReference)
+                    .into(holder.photoSite);
+        }
+
+
     }
 
     @Override
@@ -68,17 +85,15 @@ public class Adapter extends  RecyclerView.Adapter<Adapter.SitesViewHolder> impl
         TextView city;
         TextView type;
         TextView description;
-        ArrayList<Site> sites = new ArrayList<Site>();
-        Context context;
+        ImageView photoSite;
 
         public SitesViewHolder(View itemView) {
             super(itemView);
-            this.sites = sites;
-            this.context = context;
             name = (TextView)itemView.findViewById(R.id.txtName);
             city = (TextView)itemView.findViewById(R.id.txtCity);
             type = (TextView)itemView.findViewById(R.id.txtType);
             description = (TextView)itemView.findViewById(R.id.txtDescription);
+            photoSite = (ImageView)itemView.findViewById(R.id.img_site);
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.findyourplace.mimel.furp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -42,6 +43,7 @@ public class NavigationPanel extends AppCompatActivity
     User user;
     TextView salute;
     ImageView profilePhoto;
+    private ProgressDialog myProgressDialog;
 
     @Override
     public void onStart() {
@@ -60,6 +62,11 @@ public class NavigationPanel extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_panel);
+        myProgressDialog = new ProgressDialog(this);
+        myProgressDialog.setTitle("Cargando...");
+        myProgressDialog.setMessage("información del perfil");
+        myProgressDialog.setCancelable(false);
+        myProgressDialog.show();
         mAuth = FirebaseAuth.getInstance();
         user = new User();
         profilePhoto = (ImageView)findViewById(R.id.img_profile_photo);
@@ -109,6 +116,7 @@ public class NavigationPanel extends AppCompatActivity
                             .into(profilePhoto);
                 }
                 email.setText(user.getEmail());
+                myProgressDialog.dismiss();
 
             }
 
